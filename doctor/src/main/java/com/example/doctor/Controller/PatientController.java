@@ -1,11 +1,10 @@
 package com.example.doctor.Controller;
 
+import com.example.doctor.Model.DTO.AddPatientDTO;
+import com.example.doctor.Model.DTO.PatientDTO;
 import com.example.doctor.Service.PatientService;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/doctor")
@@ -14,14 +13,16 @@ public class PatientController {
 
     final private PatientService patientService;
 
-    @GetMapping("/{name}")
-    public String getPatient(@PathVariable String name){
-        return patientService.getPatient(name);
+
+    @GetMapping("/patient")
+    public PatientDTO getPatientByDoctor(@RequestParam Long id){
+        return patientService.getPatientByDoctor(id);
     }
 
-    @GetMapping("/feign/{name}")
-    public String getPatientByFeign(@PathVariable String name){
-        return patientService.getPatientByFeignClient(name);
+    @PostMapping("/patient")
+    public AddPatientDTO addPatientByDoctor(@RequestBody AddPatientDTO patientDTO){
+        return patientService.addPatientByDoctor(patientDTO);
     }
+
 
 }
