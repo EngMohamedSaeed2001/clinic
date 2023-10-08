@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 @Slf4j
 public class PatientController {
 
-    final private PatientService patientService;
+    private final PatientService patientService;
 
     @CircuitBreaker(name = "getPatientInstance",fallbackMethod = "getDefaultPatient")
     @GetMapping("/patient")

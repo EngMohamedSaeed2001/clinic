@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/payment")
 @AllArgsConstructor
 public class PatientPaymentDoctor {
-    final private PaymentService paymentService;
+    private final PaymentService paymentService;
 
     @GetMapping("/by-transaction/")
     public PaymentDTO getPaymentByTransId(@RequestParam String transId){

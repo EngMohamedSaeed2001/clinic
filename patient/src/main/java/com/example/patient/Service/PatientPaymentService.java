@@ -12,7 +12,7 @@ import java.util.List;
 
 public class PatientPaymentService {
     @Autowired
-    PaymentProxy paymentProxy;
+    private PaymentProxy paymentProxy;
 
     public List<PaymentDTO> getPatientPayments(Long patientId){
        return paymentProxy.getPaymentByPatientId(patientId);

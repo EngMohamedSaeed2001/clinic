@@ -17,8 +17,8 @@ import java.util.List;
 @AllArgsConstructor
 @Slf4j
 public class PatientController {
-    final private PatientService patientService;
-    final private PatientPaymentService paymentService;
+    private final PatientService patientService;
+    private final PatientPaymentService paymentService;
     @GetMapping("/{name}")
    public String getName(@PathVariable String name){
        return patientService.getName(name);
@@ -53,7 +53,7 @@ public class PatientController {
     }
 
     @GetMapping("/payment/by-patientId/")
-    List<PaymentDTO> getPaymentByPatientId(@RequestParam Long patientId){
+    List<PaymentDTO> getPaymentByPatientId(@RequestParam("patientId") Long patientId){
         return paymentService.getPatientPayments(patientId);
     };
 

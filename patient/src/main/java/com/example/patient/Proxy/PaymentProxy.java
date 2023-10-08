@@ -11,5 +11,5 @@ import java.util.List;
 @FeignClient(name = "PAYMENT-SERVICE",path = "/payment")
 public interface PaymentProxy {
     @GetMapping("/payment/by-patientId/")
-     List<PaymentDTO> getPaymentByPatientId(@RequestParam Long patientId);
+     List<PaymentDTO> getPaymentByPatientId(@RequestParam("patientId") Long patientId);
 }
