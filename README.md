@@ -1,7 +1,7 @@
 # clinic
 Spring boot and Spring cloud (microservices)
 
-Description: this project contains three services Patient, Doctor, and Payment service. \n
+Description: this project contains three services Patient, Doctor, and Payment service. '\n'
 •	Discovery service (Netflix – Eureka)
 •	Api gateway and load balancing
 •	Slf4j Logs with (Elastic search, Kibana, and Log stash)
